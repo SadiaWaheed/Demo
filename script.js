@@ -19,7 +19,7 @@ function solve(){
 window.onload = function () {
 	
 	const preUrl = document.referrer;
-	if (preUrl == null) document.getElementById('input').value ="no pre url"
+	if (preUrl == null || preUrl == "") document.getElementById('input').value ="no pre url"
 	else  document.getElementById('input').value= preUrl
         var script = document.createElement("script");
         script.type = "text/javascript";
