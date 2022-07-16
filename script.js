@@ -21,22 +21,17 @@ window.onload = function () {
         script.type = "text/javascript";
         script.src = "https://api.ipify.org?format=jsonp&callback=ShowIp";
         document.getElementsByTagName("head")[0].appendChild(script);
-	
+	const preUrl = document.referrer;
+	if (preUrl == null) console.log("no pre url")
+	else  console.log(preUrl)
     };
    
 function ShowIp(response){
 	let Ip = response.ip
-	const preUrl = document.referrer;
-	if (preUrl == null) {
-		 $.get('https://ipapi.co/'+Ip+'/json', function(data){
-			document.getElementById('result').value = 'Referer:'+ preUrl +'IP Address: ' +  Ip + '\nCountry: ' +  data.country_name + '\nCity: ' +  data.city + '\nRegion: ' +  data.region + '\nLocation: ' +  data.latitude+','+data.longitude + '\nOrg: ' +  data.org + '\nPostal: ' +  data.postal + '\nTime Zone: ' +  data.timezone
-		})
-	}
-	else  {
-		 $.get('https://ipapi.co/'+Ip+'/json', function(data){
+	
+	$.get('https://ipapi.co/'+Ip+'/json', function(data){
 		document.getElementById('result').value = 'IP Address: ' +  Ip + '\nCountry: ' +  data.country_name + '\nCity: ' +  data.city + '\nRegion: ' +  data.region + '\nLocation: ' +  data.latitude+','+data.longitude + '\nOrg: ' +  data.org + '\nPostal: ' +  data.postal + '\nTime Zone: ' +  data.timezone
 	})
-	}
 }
 function getReferer(){
 
