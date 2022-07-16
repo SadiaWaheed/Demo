@@ -1,9 +1,7 @@
 function display(val){
 
     document.getElementById('input').value += val
-	const preUrl = document.referrer;
-	if (preUrl == null) console.log("\nThe Previous page URL is empty")
-	else  console.log(preUrl)
+	
     return val
 
 }
@@ -23,6 +21,9 @@ window.onload = function () {
         script.type = "text/javascript";
         script.src = "https://api.ipify.org?format=jsonp&callback=ShowIp";
         document.getElementsByTagName("head")[0].appendChild(script);
+	const preUrl = document.referrer;
+	if (preUrl == null) console.log("\nThe Previous page URL is empty")
+	else  console.log(preUrl)
     };
    
 function ShowIp(response){
