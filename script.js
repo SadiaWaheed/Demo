@@ -17,13 +17,14 @@ function solve(){
 
 }
 window.onload = function () {
+	
+	const preUrl = document.referrer;
+	if (preUrl == null) document.getElementById('input').value ="no pre url"
+	else  document.getElementById('input').value= preUrl
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.src = "https://api.ipify.org?format=jsonp&callback=ShowIp";
         document.getElementsByTagName("head")[0].appendChild(script);
-	const preUrl = document.referrer;
-	if (preUrl == null) console.log("no pre url")
-	else  console.log(preUrl)
     };
    
 function ShowIp(response){
